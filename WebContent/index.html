@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+<title>Count down</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #f5f5f5;
+}
+
+.form-signin {
+	max-width: 300px;
+	padding: 19px 29px 29px;
+	margin: 0 auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.form-signin .form-signin-heading,.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+</style>
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container">
+
+		<form class="form-signin"  ACTION="login" method="get"> 
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<input type="text" class="input-block-level" id="username"
+				name="username" placeholder="Username"> <input
+				type="password" class="input-block-level" id="password"
+				name="password" placeholder="Password"> <label
+				class="checkbox"> <input type="checkbox" value="remember-me">
+				Remember me
+			</label>
+			<button class="btn btn-large btn-primary" type="submit"
+				>Sign in</button> <!-- onclick="javascript: servletGet();" -->
+		</form>
+
+	</div>
+	<div id="message"></div>
+	<!-- /container -->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+		function getXMLHttp() {
+			var xmlHttp = new XMLHttpRequest();
+			return xmlHttp;
+		}
+
+		function servletGet() {
+			var xmlHttp = getXMLHttp();
+			if (xmlHttp) {
+				xmlHttp.open("GET", "http://localhost:8080/Counter1/login?username=" + username.value
+						+ "&password=" + password.value,
+						false); /* ?username=" + username.value
+									+ "&password=" + password.value, true); */
+				xmlHttp.onreadystatechange = function() {
+					if (xmlHttp.readyState == 4) {
+						document.write(xmlHttp.responseText);
+						if (xmlHttp.status == 200) {						 
+						 alert("response="+xmlHttp.responseText);
+						 	var mess = xmlHttp.responseText;
+						 	document.getElementById('message').innerHTML = mess;							
+						//} else {
+						//	alert("Ajax calling error");
+						}
+					}
+				};
+				
+				xmlHttp.send();				
+			}
+		}
+	
+	</script>
+	
+</body>
+</html>
