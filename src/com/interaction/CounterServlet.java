@@ -38,7 +38,7 @@ public class CounterServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		RequestDispatcher dispatch1 = request
-				.getRequestDispatcher("/menu.html");
+				.getRequestDispatcher("/components/menu.html");
 		dispatch1.include(request, response);
 
 		// create session variable for username and password attributes
@@ -128,10 +128,10 @@ public class CounterServlet extends HttpServlet {
 						// session.setAttribute("second", sSecond);
 
 						// display the time left
-						RequestDispatcher rd = request.getRequestDispatcher("/menu.html");
+						RequestDispatcher rd = request.getRequestDispatcher("/components/menu.html");
 						rd.include(request, response);
 						
-						rd = request.getRequestDispatcher("/header.html");
+						rd = request.getRequestDispatcher("/components/header.html");
 						rd.include(request, response);
 						out.println("<div style=\"width: 400px; margin-right: auto; margin-left: 38%;\">");
 						out.println("<h3>"+computeTimeLeft(sHour, sMinute, sSecond)+"</h3></div>");
@@ -142,10 +142,10 @@ public class CounterServlet extends HttpServlet {
 						out.println("<input type=\"hidden\" name=\"username\" value="
 								+ username + ">");
 						 rd = request
-								.getRequestDispatcher("/logout.html");
+								.getRequestDispatcher("/components/logout.html");
 						rd.include(request, response);
 						
-						rd = request.getRequestDispatcher("/footer.html");
+						rd = request.getRequestDispatcher("/components/footer.html");
 						rd.include(request, response);
 
 						// save user configuration into global servlet context
@@ -163,10 +163,10 @@ public class CounterServlet extends HttpServlet {
 			IOException {
 
 		// output the HTML content
-		RequestDispatcher rd = request.getRequestDispatcher("/menu.html");
+		RequestDispatcher rd = request.getRequestDispatcher("/components/menu.html");
 		rd.include(request, response);
 		
-		rd = request.getRequestDispatcher("/header.html");
+		rd = request.getRequestDispatcher("/components/header.html");
 		rd.include(request, response);
 		
 		out.println("<div style=\"width: 400px; margin-right: auto; margin-left: auto; border: 1px solid #000;\">");
@@ -175,7 +175,7 @@ public class CounterServlet extends HttpServlet {
 				+ username + ">");
 		out.println("<input type=\"hidden\" name=\"password\" value="
 				+ password + ">");
-		rd = request.getRequestDispatcher("/timeForm.html");
+		rd = request.getRequestDispatcher("/components/timeForm.html");
 		rd.include(request, response);
 
 		// show logout button
@@ -184,13 +184,13 @@ public class CounterServlet extends HttpServlet {
 		out.println("<input type=\"hidden\" name=\"username\" value="
 				+ username + ">");
 
-		rd = request.getRequestDispatcher("/logout.html");
+		rd = request.getRequestDispatcher("/components/logout.html");
 		rd.include(request, response);
 
 		if (showError) {			
 			out.println("<center><font color=\"red\">" + errorMessage + "</font></center>");
 		}
-		rd = request.getRequestDispatcher("/footer.html");
+		rd = request.getRequestDispatcher("/components/footer.html");
 		rd.include(request, response);
 
 		out.close();

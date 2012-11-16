@@ -41,10 +41,10 @@ public class LogoutServlet extends HttpServlet {
 			sc.removeAttribute(username);
 		
 		RequestDispatcher rd = this.getServletConfig().getServletContext()
-				.getRequestDispatcher("/menu.html");
+				.getRequestDispatcher("/components/menu.html");
 		rd.include(request, response);
 		RequestDispatcher rd1 = this.getServletConfig().getServletContext()
-		.getRequestDispatcher("/index.html");
+		.getRequestDispatcher("/components/index.html");
 		rd1.include(request, response);
 	}
 

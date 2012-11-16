@@ -48,10 +48,10 @@ public class AdminServlet extends HttpServlet {
 		@SuppressWarnings("rawtypes")
 		Enumeration users = sc.getAttributeNames();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("menu.html");
+		RequestDispatcher rd = request.getRequestDispatcher("/components/menu.html");
 		rd.include(request, response);
 		
-		rd = request.getRequestDispatcher("header.html");
+		rd = request.getRequestDispatcher("/components/header.html");
 		rd.include(request, response);
 		
 		out.println("<h3>Users online:</h3><br>");
@@ -68,7 +68,7 @@ public class AdminServlet extends HttpServlet {
 			}
 		}
 		
-		rd = request.getRequestDispatcher("footer.html");
+		rd = request.getRequestDispatcher("/components/footer.html");
 		rd.include(request, response);
 		out.close();
 	}

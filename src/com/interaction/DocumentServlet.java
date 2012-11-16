@@ -41,11 +41,11 @@ public class DocumentServlet extends HttpServlet {
 
 		// output the HTML content
 		//include menu
-		RequestDispatcher dispatch1 = request.getRequestDispatcher("/menu.html");  
+		RequestDispatcher dispatch1 = request.getRequestDispatcher("/components/menu.html");  
 		dispatch1.include(request, response);
 
 		//include header
-		dispatch1 = request.getRequestDispatcher("/header.html");
+		dispatch1 = request.getRequestDispatcher("/components/header.html");
 		dispatch1.include(request, response);
 		
 		
@@ -67,7 +67,7 @@ public class DocumentServlet extends HttpServlet {
 			out.println("<br>");
 			out.println("----------------------------------------------------------------------------<br>");
 		}
-		dispatch1 = request.getRequestDispatcher("/footer.html");
+		dispatch1 = request.getRequestDispatcher("/components/footer.html");
 		dispatch1.include(request, response);
 		out.flush();
 	}

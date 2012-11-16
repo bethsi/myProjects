@@ -3,7 +3,7 @@
   <display-name>CounterWithForm</display-name>
   <welcome-file-list>
     <welcome-file>welcome</welcome-file>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>components/index.html</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
